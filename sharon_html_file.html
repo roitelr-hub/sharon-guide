@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 צעדים לשינוי — שרון שחר</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;direction:rtl;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#F5EDE8;color:#3D2B1F;}
+
+  :root{
+    --bg-page:#F5EDE8;
+    --bg-white:#FFFAF8;
+    --bg-blush:#F2DDD5;
+    --bg-olive:#6B6745;
+    --c-brown:#3D2B1F;
+    --c-terra:#B85C38;
+    --c-terra-light:#D4845E;
+    --c-muted:#7A5C4E;
+    --border-warm:rgba(184,92,56,0.18);
+  }
+
+  .wrap{max-width:680px;margin:0 auto;background:var(--bg-page);min-height:100vh;padding-bottom:3rem;}
+
+  .hero{text-align:center;padding:2.5rem 1.5rem 1.5rem;}
+  .hero-photo{width:100px;height:100px;border-radius:50%;border:3px solid var(--c-terra);margin:0 auto 1rem;overflow:hidden;background:#e8d5cc;display:flex;align-items:center;justify-content:center;}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;}
+  .photo-ph{font-size:11px;color:var(--c-muted);text-align:center;line-height:1.4;padding:6px;}
+  .hero-name{font-size:13px;color:var(--c-terra);font-weight:600;letter-spacing:0.05em;margin-bottom:0.4rem;}
+  .hero h1{font-size:22px;font-weight:700;color:var(--c-brown);line-height:1.35;margin-bottom:0.6rem;}
+  .hero p{font-size:15px;color:var(--c-muted);line-height:1.7;max-width:460px;margin:0 auto 1.25rem;}
+
+  .prog-wrap{display:flex;gap:5px;justify-content:center;margin-bottom:1.25rem;}
+  .prog-dot{width:28px;height:4px;border-radius:2px;background:rgba(184,92,56,0.2);transition:background 0.3s;}
+  .prog-dot.active{background:var(--c-terra);}
+  .prog-dot.done{background:#8aad7a;}
+
+  .nav-steps{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:0 1rem 1rem;}
+  .nsb{background:none;border:1px solid var(--border-warm);border-radius:20px;padding:4px 14px;font-size:13px;color:var(--c-muted);cursor:pointer;transition:all 0.2s;font-family:inherit;}
+  .nsb:hover{background:var(--bg-blush);}
+  .nsb.cur{background:var(--c-terra);color:#fff;border-color:var(--c-terra);}
+  .nsb.cmp{background:#e8f0e4;color:#4a7a3a;border-color:#a8c89a;}
+
+  .sc-wrap{padding:0 1rem;}
+  .sc{background:var(--bg-white);border:1px solid var(--border-warm);border-radius:16px;padding:1.75rem;margin-bottom:1rem;display:none;}
+  .sc.vis{display:block;}
+
+  .sh{display:flex;align-items:flex-start;gap:12px;margin-bottom:1.25rem;}
+  .snum{width:38px;height:38px;border-radius:50%;background:var(--bg-blush);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:var(--c-terra);flex-shrink:0;}
+  .snum.ok{background:#e8f0e4;color:#4a7a3a;}
+  .stitle{font-size:19px;font-weight:700;color:var(--c-brown);line-height:1.3;}
+  .ssub{font-size:13px;color:var(--c-muted);margin-top:3px;}
+
+  .why{background:var(--bg-blush);border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.25rem;}
+  .why p{font-size:14px;color:var(--c-brown);line-height:1.75;}
+
+  .lbl{font-size:14px;color:var(--c-muted);margin-bottom:6px;display:block;}
+  textarea{width:100%;border:1px solid rgba(184,92,56,0.25);border-radius:10px;padding:10px 13px;font-size:15px;font-family:inherit;color:var(--c-brown);background:var(--bg-page);resize:vertical;min-height:95px;line-height:1.7;direction:rtl;}
+  textarea:focus{outline:none;border-color:var(--c-terra);background:#fff;}
+  textarea::placeholder{color:rgba(122,92,78,0.5);}
+
+  .multi{display:flex;flex-direction:column;gap:10px;}
+  .ni{display:flex;align-items:flex-start;gap:8px;}
+  .nbadge{width:24px;height:24px;border-radius:50%;background:var(--bg-blush);color:var(--c-terra);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:9px;}
+  .ni textarea{min-height:58px;}
+
+  .story{border-right:3px solid var(--c-terra-light);padding-right:1rem;margin-top:1.25rem;}
+  .story-lbl{font-size:11px;color:var(--c-terra);font-weight:700;letter-spacing:0.04em;margin-bottom:4px;}
+  .story p{font-size:14px;color:var(--c-muted);line-height:1.75;}
+
+  .hint-btn{background:none;border:1px solid rgba(184,92,56,0.3);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--c-terra);cursor:pointer;margin-top:0.75rem;font-family:inherit;}
+  .hint-btn:hover{background:var(--bg-blush);}
+  .hints-list{display:none;margin-top:8px;background:var(--bg-page);border-radius:10px;padding:10px 14px;}
+  .hints-list.open{display:block;}
+  .hints-list p{font-size:13px;color:var(--c-muted);line-height:2.1;}
+
+  .med-box{background:var(--bg-olive);border-radius:14px;padding:1.75rem;text-align:center;margin-bottom:1.25rem;}
+  .med-box p{font-size:14px;color:#FFFAF8;line-height:1.7;margin-bottom:0.75rem;opacity:0.9;}
+  .med-ph{font-size:13px;color:rgba(255,250,248,0.6);font-style:italic;}
+
+  .btn-terra{display:inline-flex;align-items:center;gap:7px;background:var(--c-terra);color:#fff;border:none;border-radius:30px;padding:10px 22px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity 0.2s;}
+  .btn-terra:hover{opacity:0.85;}
+  .btn-wa{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#fff;border:none;border-radius:30px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity 0.2s;}
+  .btn-wa:hover{opacity:0.85;}
+  .btn-ghost{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid rgba(184,92,56,0.3);border-radius:30px;padding:10px 18px;font-size:14px;color:var(--c-muted);cursor:pointer;font-family:inherit;}
+  .btn-ghost:hover{background:var(--bg-blush);}
+
+  .sfoot{display:flex;justify-content:space-between;align-items:center;margin-top:1.75rem;padding-top:1rem;border-top:1px solid var(--border-warm);flex-wrap:wrap;gap:10px;}
+  .btn-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+
+  .fin{background:var(--bg-white);border:1px solid var(--border-warm);border-radius:16px;padding:2rem;text-align:center;display:none;}
+  .fin.vis{display:block;}
+  .fin-photo{width:90px;height:90px;border-radius:50%;border:3px solid var(--c-terra);margin:0 auto 1rem;overflow:hidden;background:#e8d5cc;display:flex;align-items:center;justify-content:center;}
+  .fin h2{font-size:22px;font-weight:700;color:var(--c-brown);margin-bottom:0.75rem;}
+  .fin p{font-size:15px;color:var(--c-muted);line-height:1.7;margin-bottom:1rem;}
+  .fin-btns{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:1.25rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-photo">
+      <!-- 📸 להחליף ב: <img src="URL_של_תמונת_שרון" alt="שרון שחר"> -->
+      <div class="photo-ph">📸 תמונה<br>של שרון</div>
+    </div>
+    <div class="hero-name">שרון שחר</div>
+    <h1>5 צעדים שיעזרו לך להתחיל את השינוי שבוער בך</h1>
+    <p>בלי לשנות שום דבר חיצוני. רק לדמיין, לרשום, ולגלות שזה אפשרי.</p>
+    <div class="prog-wrap" id="progBar">
+      <div class="prog-dot" id="d0"></div>
+      <div class="prog-dot" id="d1"></div>
+      <div class="prog-dot" id="d2"></div>
+      <div class="prog-dot" id="d3"></div>
+      <div class="prog-dot" id="d4"></div>
+    </div>
+  </div>
+
+  <div class="nav-steps">
+    <button class="nsb cur" onclick="go(0)">1 · דמייני</button>
+    <button class="nsb" onclick="go(1)">2 · רשמי</button>
+    <button class="nsb" onclick="go(2)">3 · נחשי</button>
+    <button class="nsb" onclick="go(3)">4 · הקשיבי</button>
+    <button class="nsb" onclick="go(4)">5 · ספרי</button>
+  </div>
+
+  <div class="sc-wrap">
+
+    <!-- שלב 1 -->
+    <div class="sc vis" id="s0">
+      <div class="sh">
+        <div class="snum" id="n0">1</div>
+        <div><div class="stitle">דמייני</div><div class="ssub">תרגיל חופשי — בלי מחויבות</div></div>
+      </div>
+      <div class="why"><p>מחשבות ירוצו בכל מקרה. אם לא תשקיעי כמה דקות בתרחיש חיובי — המוח יחזור לשלילי. זה רק תרגיל. מה שתדמייני לא מאלץ אותך לשנות כלום.</p></div>
+      <label class="lbl">את פוגשת את עצמך שנה מהיום בבית קפה שאת אוהבת. מה את רואה? ספרי לאני של עכשיו:</label>
+      <textarea id="a0" placeholder="בעולם שבו הכל אפשרי ואין מגבלה של זמן וכסף — תארי תוצאה אחת שהשגת שנה מהיום..."></textarea>
+      <div>
+        <button class="hint-btn" onclick="tog('h0')">קשה לדמיין? הנה שאלות עזר</button>
+        <div class="hints-list" id="h0">
+          <p>איך את נראית, מה את לובשת?<br>
+          איפה את עובדת, כמה שעות ביום?<br>
+          למי את עוזרת?<br>
+          מה את עושה בזמן הפנוי?<br>
+          מה את מרגישה בבוקר כשאת קמה?<br>
+          מה את אומרת לאני של לפני שנה?</p>
+        </div>
+      </div>
+      <div class="story">
+        <div class="story-lbl">מניסיוני האישי</div>
+        <p>כשהייתי מורה במשרד החינוך רציתי מאוד לעזוב — אבל זה נראה טירוף. כי דמיינתי איך אהיה אדון לעצמי, איך אני מנהלת את הזמן שלי — משם הגיע הרעיון לפתוח עסק משלי.</p>
+      </div>
+      <div class="sfoot">
+        <button class="btn-wa" onclick="openWA('דמייני את השינוי שבוער בך')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          שתפי אותי בדמיון שלך
+        </button>
+        <button class="btn-terra" onclick="nxt(0)">לשלב הבא ←</button>
+      </div>
+    </div>
+
+    <!-- שלב 2 -->
+    <div class="sc" id="s1">
+      <div class="sh">
+        <div class="snum" id="n1">2</div>
+        <div><div class="stitle">רשמי</div><div class="ssub">הפחדים על הדף — לא בראש</div></div>
+      </div>
+      <div class="why"><p>ברגע שדמיינת עתיד טוב, עלו מיד קולות של פחד. לא נפתור אותם ולא נתעלם מהם — נכתוב אותם. פחד שנמצא על הדף כבר לא ממלא את כל הראש שלך.</p></div>
+      <label class="lbl" style="margin-bottom:10px;">רשמי 3–5 דברים שמפחידים אותך כשאת חושבת על השינוי:</label>
+      <div class="multi">
+        <div class="ni"><div class="nbadge">1</div><textarea id="f0" placeholder="למשל: מה אם לא אמצא משהו טוב יותר..."></textarea></div>
+        <div class="ni"><div class="nbadge">2</div><textarea id="f1"></textarea></div>
+        <div class="ni"><div class="nbadge">3</div><textarea id="f2"></textarea></div>
+        <div class="ni"><div class="nbadge">4</div><textarea id="f3" placeholder="רשות (אופציונלי)"></textarea></div>
+        <div class="ni"><div class="nbadge">5</div><textarea id="f4" placeholder="רשות (אופציונלי)"></textarea></div>
+      </div>
+      <div class="story" style="margin-top:1.25rem;">
+        <div class="story-lbl">מניסיוני האישי</div>
+        <p>הפחדים שלי: בטח משרד החינוך לא ישחרר אותי. בטח הורים לא ירצו שיעורים קבוצתיים. הרבה מורות רוצות לעזוב ולא מצליחות — למה שאני אצליח?</p>
+      </div>
+      <div class="sfoot">
+        <button class="btn-wa" onclick="openWA('הפחדים שלי מהשינוי')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          ספרי לי על הפחדים שלך
+        </button>
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="go(0)">→ חזרה</button>
+          <button class="btn-terra" onclick="nxt(1)">לשלב הבא ←</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- שלב 3 -->
+    <div class="sc" id="s2">
+      <div class="sh">
+        <div class="snum" id="n2">3</div>
+        <div><div class="stitle">נחשי</div><div class="ssub">3 צעדים קטנים ראשונים (בדמיון)</div></div>
+      </div>
+      <div class="why"><p>שאלי את האני העתידית שלך: מה היו 3 הצעדים הראשונים שעשית? לא חייב להיות גדול. פשוט — נחשי. רק את קוראת את זה, ואין תשובות נכונות.</p></div>
+      <label class="lbl" style="margin-bottom:10px;">3 הצעדים הראשונים שעשית (בדמיון):</label>
+      <div class="multi">
+        <div class="ni"><div class="nbadge">1</div><textarea id="sa" placeholder="למשל: פתחתי את האינטרנט לבדוק איפה לומדים את התחום שמעניין אותי..."></textarea></div>
+        <div class="ni"><div class="nbadge">2</div><textarea id="sb"></textarea></div>
+        <div class="ni"><div class="nbadge">3</div><textarea id="sc_"></textarea></div>
+      </div>
+      <div class="story" style="margin-top:1.25rem;">
+        <div class="story-lbl">מניסיוני האישי</div>
+        <p>בדקתי מה הזכויות שלי. קבעתי פגישת ייעוץ עם עורך דין (חינמית!). בדקתי כמה ימי חופש מגיעים לי.</p>
+      </div>
+      <div class="sfoot">
+        <button class="btn-wa" onclick="openWA('הצעדים הראשונים שלי לשינוי')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          שתפי אותי בצעדים שלך
+        </button>
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="go(1)">→ חזרה</button>
+          <button class="btn-terra" onclick="nxt(2)">לשלב הבא ←</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- שלב 4 -->
+    <div class="sc" id="s3">
+      <div class="sh">
+        <div class="snum" id="n3">4</div>
+        <div><div class="stitle">הקשיבי</div><div class="ssub">מדיטציה לרגעים שקשה לדמיין</div></div>
+      </div>
+      <div class="med-box">
+        <!-- 🎧 להטמיע כאן את המדיטציה של שרון: -->
+        <!-- אודיו: <audio controls style="width:100%;margin-bottom:0.75rem;"><source src="URL_MEDITATION" type="audio/mpeg"></audio> -->
+        <!-- YouTube: <iframe width="100%" height="80" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> -->
+        <p>המדיטציה המוקלטת של שרון תופיע כאן</p>
+        <div class="med-ph">📍 מיקום להטמעת קובץ אודיו / קישור</div>
+      </div>
+      <p style="font-size:14px;color:var(--c-muted);line-height:1.75;">את יכולה לחזור לשלב הזה מתי שקשה לך לדמיין, כשהפחדים חזקים, או כהטענה יומית לפני שינה.</p>
+      <div class="story" style="margin-top:1.25rem;">
+        <div class="story-lbl">מניסיוני האישי</div>
+        <p>חיפשתי מקורות שיתנו לי תקווה: פודקאסטים, יוטיוב, מדיטציות, והמון ספרים. כל דבר שהרגשתי שעוזר לי — אימצתי אל ליבי.</p>
+      </div>
+      <div class="sfoot">
+        <button class="btn-wa" onclick="openWA('המדיטציה')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          כתבי לי מה הרגשת
+        </button>
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="go(2)">→ חזרה</button>
+          <button class="btn-terra" onclick="nxt(3)">לשלב האחרון ←</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- שלב 5 -->
+    <div class="sc" id="s4">
+      <div class="sh">
+        <div class="snum" id="n4">5</div>
+        <div><div class="stitle">ספרי</div><div class="ssub">תני לשינוי לצאת מהראש לעולם</div></div>
+      </div>
+      <div class="why"><p>הרעיון צריך לצאת החוצה. לא בהכרח לייצר שינוי — אבל להתחיל להתרגל לדבר עליו. ברגע שתסתכלי לחברה בעיניים ותגידי בקול רם מה את רוצה — המילים שלך יהפכו להיות מציאות.</p></div>
+      <label class="lbl">עם מי קבעת לדבר? מה את הולכת לספר?</label>
+      <textarea id="sp" placeholder="למשל: אני הולכת לשבת עם X בסוף השבוע ולספר לה שאני רוצה לשנות את..."></textarea>
+      <div class="story" style="margin-top:1.25rem;">
+        <div class="story-lbl">מניסיוני האישי</div>
+        <p>השינוי שלי החל ברגע שהעזתי לשבת עם חברה ולספר שאני הולכת לעזוב את משרד החינוך. הפחדים לא נעלמו — אבל זה כבר לא היה סוד בתוך הראש שלי. זה היה בעולם.</p>
+      </div>
+      <div class="sfoot">
+        <button class="btn-wa" onclick="openWA('ספרתי לחברה על השינוי')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          ספרי לי למי שתפת
+        </button>
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="go(3)">→ חזרה</button>
+          <button class="btn-terra" onclick="fin()">סיימתי ✓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- סיום -->
+    <div class="fin" id="finCard">
+      <div class="fin-photo">
+        <!-- 📸 <img src="URL_תמונת_שרון" alt="שרון שחר" style="width:100%;height:100%;object-fit:cover;"> -->
+        <div class="photo-ph">📸 שרון</div>
+      </div>
+      <h2>כל הכבוד — עשית את זה</h2>
+      <p>עברת את כל 5 השלבים. אם משהו התעורר בך — זה לא מקרה. זה סימן שאת מוכנה לצעד הבא.</p>
+      <!-- 📝 כאן שרון תוסיף: קצת עלי + השיטה שלי + לינק לתוכנית הליווי -->
+      <p style="font-size:13px;color:rgba(122,92,78,0.5);">📍 מיקום לתוכן "קצת עלי", השיטה שלי, ולינק לתוכנית</p>
+      <div class="fin-btns">
+        <button class="btn-terra" style="font-size:16px;padding:13px 28px;" onclick="openWA('רוצה לדבר על השינוי שלי')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          שרון, אשמח שנדבר — ללא עלות
+        </button>
+        <button class="btn-ghost" onclick="restart()">↺ חזרה להתחלה</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  var cur=0, done=[];
+  var WA="972XXXXXXXXX"; // 📞 להחליף במספר WhatsApp של שרון (ללא + ורווחים, לדוגמה: 972521234567)
+
+  function openWA(ctx){
+    window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("היי שרון, סיימתי את שלב '"+ctx+"' במדריך :"),"_blank");
+  }
+  function go(n){
+    document.getElementById("s"+cur).classList.remove("vis");
+    document.getElementById("finCard").classList.remove("vis");
+    cur=n;
+    document.getElementById("s"+cur).classList.add("vis");
+    ui();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  function nxt(n){
+    if(!done.includes(n)) done.push(n);
+    var el=document.getElementById("n"+n);
+    el.classList.add("ok"); el.textContent="✓";
+    go(n+1);
+  }
+  function fin(){
+    if(!done.includes(4)) done.push(4);
+    var el=document.getElementById("n4");
+    el.classList.add("ok"); el.textContent="✓";
+    document.getElementById("s4").classList.remove("vis");
+    document.getElementById("finCard").classList.add("vis");
+    ui();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  function restart(){
+    done=[];
+    for(var i=0;i<5;i++){var e=document.getElementById("n"+i);e.classList.remove("ok");e.textContent=i+1;}
+    cur=0;
+    document.getElementById("finCard").classList.remove("vis");
+    document.getElementById("s0").classList.add("vis");
+    ui();
+  }
+  function tog(id){document.getElementById(id).classList.toggle("open");}
+  function ui(){
+    var dots=document.querySelectorAll(".prog-dot");
+    var btns=document.querySelectorAll(".nsb");
+    for(var i=0;i<5;i++){
+      dots[i].className="prog-dot";
+      btns[i].className="nsb";
+      if(done.includes(i)){dots[i].classList.add("done");btns[i].classList.add("cmp");}
+      else if(i===cur){dots[i].classList.add("active");btns[i].classList.add("cur");}
+    }
+  }
+  ui();
+</script>
+</body>
+</html>
