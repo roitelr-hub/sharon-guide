@@ -8,6 +8,8 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;direction:rtl;}
 body{font-family:'Segoe UI',Arial,sans-serif;background:#F5EDE8;color:#3D2B1F;}
+.music-btn{position:fixed;bottom:18px;left:18px;z-index:999;width:42px;height:42px;border-radius:50%;background:var(--terra);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.2);font-size:18px;transition:opacity 0.2s;}
+.music-btn:hover{opacity:0.85;}
 :root{
   --bg:#F5EDE8;--bg-white:#FFFAF8;--bg-blush:#F2DDD5;--bg-olive:#6B6745;
   --terra:#B85C38;--terra-l:#D4845E;--brown:#3D2B1F;--muted:#7A5C4E;
@@ -140,6 +142,12 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
 </style>
 </head>
 <body>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="Soft music .mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="מוזיקה">🔇</button>
 
 <!-- COVER -->
 <div class="page vis" id="pgCover">
@@ -421,6 +429,14 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
 var cur=0,done=[];
 var WA="972XXXXXXXXX";
 var STEPS=["1 · דמייני","2 · רשמי","3 · נחשי","4 · הקשיבי","5 · ספרי"];
+var musicPlaying=false;
+
+function toggleMusic(){
+  var audio=document.getElementById("bgMusic");
+  var btn=document.getElementById("musicBtn");
+  if(musicPlaying){audio.pause();btn.textContent="🔇";musicPlaying=false;}
+  else{audio.play();btn.textContent="🔊";musicPlaying=true;}
+}
 
 function openWA(ctx){window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("היי שרון, סיימתי את שלב '"+ctx+"' במדריך 🌿"),"_blank");}
 function showIntro(){document.getElementById("pgCover").classList.remove("vis");document.getElementById("pgIntro").classList.add("vis");window.scrollTo({top:0,behavior:"smooth"});}
