@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>5 צעדים לשינוי — שרון שחר</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;direction:rtl;}
 body{font-family:'Segoe UI',Arial,sans-serif;background:#F5EDE8;color:#3D2B1F;}
@@ -28,20 +29,27 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#F5EDE8;color:#3D2B1F;}
 .btn-start{background:var(--terra);color:#fff;border:none;border-radius:30px;padding:14px 36px;font-size:17px;font-weight:700;cursor:pointer;font-family:inherit;transition:opacity 0.2s;}
 .btn-start:hover{opacity:0.85;}
 
+/* INTRO PAGE */
+.intro-page{background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2.5rem 1.5rem;}
+.intro-card{background:var(--bg-white);border:1px solid var(--border);border-radius:20px;padding:2rem;max-width:560px;width:100%;}
+.intro-card h2{font-size:21px;font-weight:700;color:var(--brown);margin-bottom:1.25rem;text-align:center;}
+.intro-step{display:flex;gap:12px;margin-bottom:1.1rem;align-items:flex-start;}
+.intro-icon{width:36px;height:36px;border-radius:50%;background:var(--bg-blush);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.intro-text{font-size:14px;color:var(--muted);line-height:1.7;padding-top:6px;}
+.intro-text strong{color:var(--brown);}
+.intro-note{background:var(--bg-blush);border-radius:10px;padding:1rem;margin:1.25rem 0;font-size:14px;color:var(--brown);line-height:1.7;text-align:center;}
+.intro-sig{font-family:'Caveat',cursive;font-size:22px;color:var(--terra);text-align:center;margin-top:0.5rem;}
+
 /* GUIDE */
 .guide{max-width:680px;margin:0 auto;padding-bottom:3rem;}
-.guide-hero{text-align:center;padding:2rem 1.5rem 1rem;}
-.guide-hero h2{font-size:19px;font-weight:700;color:var(--brown);margin-bottom:0.4rem;}
+.guide-hero{text-align:center;padding:2rem 1.5rem 0.5rem;}
+.guide-hero h2{font-size:19px;font-weight:700;color:var(--brown);margin-bottom:0.3rem;}
 .guide-hero p{font-size:14px;color:var(--muted);}
-.prog-wrap{display:flex;gap:5px;justify-content:center;margin:1rem 0;}
+.prog-wrap{display:flex;gap:5px;justify-content:center;margin:0.75rem 0 0.25rem;}
 .pd{width:28px;height:4px;border-radius:2px;background:rgba(184,92,56,0.2);transition:background 0.3s;}
 .pd.active{background:var(--terra);}
 .pd.done{background:#8aad7a;}
-.nav-steps{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:0 1rem 1rem;}
-.nsb{background:none;border:1px solid var(--border);border-radius:20px;padding:4px 14px;font-size:13px;color:var(--muted);cursor:pointer;transition:all 0.2s;font-family:inherit;}
-.nsb:hover{background:var(--bg-blush);}
-.nsb.cur{background:var(--terra);color:#fff;border-color:var(--terra);}
-.nsb.cmp{background:#e8f0e4;color:#4a7a3a;border-color:#a8c89a;}
+
 .sc-wrap{padding:0 1rem;}
 .sc{background:var(--bg-white);border:1px solid var(--border);border-radius:16px;padding:1.75rem;margin-bottom:1rem;display:none;}
 .sc.vis{display:block;}
@@ -61,33 +69,49 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
 .nbadge{width:24px;height:24px;border-radius:50%;background:var(--bg-blush);color:var(--terra);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:9px;}
 .ni textarea{min-height:58px;}
 
-/* STORY WITH PHOTO */
-.story{border-right:3px solid var(--terra-l);padding-right:1rem;margin-top:1.25rem;}
+/* STORY — כתב יד */
+.story{border-right:3px solid var(--terra-l);padding-right:1rem;margin-top:1.25rem;background:rgba(242,221,213,0.25);border-radius:0 10px 10px 0;padding:0.85rem 0.85rem 0.85rem 1rem;}
 .story-inner{display:flex;align-items:flex-start;gap:14px;}
-.story-img{width:64px;height:80px;flex-shrink:0;display:flex;align-items:flex-end;justify-content:center;}
-.story-img img{width:100%;height:100%;object-fit:contain;object-position:bottom;}
-/* placeholder when no image */
-.story-img-ph{width:60px;height:76px;background:var(--bg-blush);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--terra);text-align:center;line-height:1.3;padding:4px;}
+.story-img{width:60px;flex-shrink:0;display:flex;align-items:flex-end;justify-content:center;}
+.story-img img{width:100%;object-fit:contain;}
+.story-img-ph{width:56px;height:70px;background:var(--bg-blush);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--terra);text-align:center;line-height:1.3;padding:4px;}
 .story-text{flex:1;}
-.story-lbl{font-size:11px;color:var(--terra);font-weight:700;letter-spacing:0.04em;margin-bottom:4px;}
-.story p{font-size:14px;color:var(--muted);line-height:1.75;}
+.story-lbl{font-size:11px;color:var(--terra);font-weight:700;letter-spacing:0.04em;margin-bottom:2px;}
+.story p{font-family:'Caveat',cursive;font-size:18px;color:#5C3D2A;line-height:1.65;}
 
-.hint-btn{background:none;border:1px solid rgba(184,92,56,0.3);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--terra);cursor:pointer;margin-top:0.75rem;font-family:inherit;}
+/* HINT BUTTON WITH ARROW */
+.hint-btn{background:none;border:1px solid rgba(184,92,56,0.3);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--terra);cursor:pointer;margin-top:0.75rem;font-family:inherit;display:inline-flex;align-items:center;gap:6px;}
 .hint-btn:hover{background:var(--bg-blush);}
+.hint-arrow{display:inline-block;transition:transform 0.25s;font-style:normal;}
+.hint-btn.open .hint-arrow{transform:rotate(180deg);}
 .hints{display:none;margin-top:8px;background:var(--bg);border-radius:10px;padding:10px 14px;}
 .hints.open{display:block;}
 .hints p{font-size:13px;color:var(--muted);line-height:2.1;}
+
+/* MEDITATION BOX */
 .med-box{background:var(--bg-olive);border-radius:14px;padding:1.75rem;text-align:center;margin-bottom:1.25rem;}
-.med-box p{font-size:14px;color:#FFFAF8;line-height:1.7;margin-bottom:0.75rem;opacity:0.9;}
+.med-icon{margin-bottom:0.75rem;}
+.med-box p{font-size:14px;color:#FFFAF8;line-height:1.7;margin-bottom:0.5rem;opacity:0.9;}
 .med-ph{font-size:13px;color:rgba(255,250,248,0.55);font-style:italic;}
+
+/* BUTTONS */
 .btn-t{display:inline-flex;align-items:center;gap:7px;background:var(--terra);color:#fff;border:none;border-radius:30px;padding:10px 22px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity 0.2s;}
 .btn-t:hover{opacity:0.85;}
+.btn-almost{display:inline-flex;align-items:center;gap:7px;background:var(--terra);color:#fff;border:none;border-radius:30px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity 0.2s;}
+.btn-almost:hover{opacity:0.85;}
 .btn-wa{display:inline-flex;align-items:center;gap:7px;background:#25D366;color:#fff;border:none;border-radius:30px;padding:10px 22px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;}
 .btn-wa:hover{opacity:0.85;}
 .btn-g{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid rgba(184,92,56,0.3);border-radius:30px;padding:10px 18px;font-size:14px;color:var(--muted);cursor:pointer;font-family:inherit;}
 .btn-g:hover{background:var(--bg-blush);}
 .sfoot{display:flex;justify-content:space-between;align-items:center;margin-top:1.75rem;padding-top:1rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:10px;}
 .brow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+
+/* NAV STEPS — bottom */
+.nav-steps{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;padding:0.75rem 1rem 0;}
+.nsb{background:none;border:1px solid var(--border);border-radius:20px;padding:4px 14px;font-size:13px;color:var(--muted);cursor:pointer;transition:all 0.2s;font-family:inherit;}
+.nsb:hover{background:var(--bg-blush);}
+.nsb.cur{background:var(--terra);color:#fff;border-color:var(--terra);}
+.nsb.cmp{background:#e8f0e4;color:#4a7a3a;border-color:#a8c89a;}
 
 /* FINISH */
 .finish{max-width:680px;margin:0 auto;padding:2rem 1rem 3rem;}
@@ -99,8 +123,6 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
 .about-card{background:var(--bg-white);border:1px solid var(--border);border-radius:16px;padding:1.75rem;margin-bottom:1rem;}
 .about-card h3{font-size:17px;font-weight:700;color:var(--brown);margin-bottom:1rem;}
 .about-card p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:0.75rem;}
-.about-card p:last-child{margin-bottom:0;}
-.method-steps{margin-top:1rem;}
 .ms{display:flex;gap:12px;margin-bottom:0.85rem;align-items:flex-start;}
 .ms-num{width:28px;height:28px;border-radius:50%;background:var(--bg-blush);color:var(--terra);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
 .ms-text{font-size:14px;color:var(--muted);line-height:1.7;}
@@ -112,7 +134,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
 .cta-card h3{font-size:18px;font-weight:700;color:var(--brown);margin-bottom:0.5rem;}
 .cta-card p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;}
 .cta-btns{display:flex;flex-direction:column;gap:10px;align-items:center;}
-.btn-program{display:inline-flex;align-items:center;gap:7px;background:none;border:2px solid var(--terra);color:var(--terra);border-radius:30px;padding:11px 26px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:all 0.2s;text-decoration:none;}
+.btn-program{display:inline-flex;align-items:center;gap:7px;background:none;border:2px solid var(--terra);color:var(--terra);border-radius:30px;padding:11px 26px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;text-decoration:none;transition:all 0.2s;}
 .btn-program:hover{background:var(--terra);color:#fff;}
 .wa-svg{width:16px;height:16px;fill:white;flex-shrink:0;}
 </style>
@@ -123,7 +145,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
 <div class="page vis" id="pgCover">
   <div class="cover">
     <div class="cover-photo">
-      <!-- 📸 תמונה עגולה של שרון — להחליף ב: <img src="URL" alt="שרון שחר"> -->
+      <!-- 📸 <img src="URL_תמונת_שרון" alt="שרון שחר"> -->
       <div class="cover-ph">📸 תמונה<br>של שרון</div>
     </div>
     <div class="cover-tag">שרון שחר · אימון מנטלי לשינוי</div>
@@ -131,7 +153,41 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
     <div class="cover-divider"></div>
     <p class="cover-sub">את יודעת שאת רוצה שינוי.<br>את יודעת איזה שינוי.<br>ואת יודעת שככה את לא ממשיכה.</p>
     <p class="cover-sub2">המדריך הזה לא מבקש ממך לשנות שום דבר חיצוני — עדיין לא.<br>הוא רק עוזר לך לעשות צעד אחד בטוח: לדמיין בלי פחד לאן את רוצה להגיע.</p>
-    <button class="btn-start" onclick="startGuide()">אני מוכנה — בואי נתחיל</button>
+    <button class="btn-start" onclick="showIntro()">אני מוכנה — בואי נתחיל</button>
+  </div>
+</div>
+
+<!-- INTRO PAGE -->
+<div class="page" id="pgIntro">
+  <div class="intro-page">
+    <div class="intro-card">
+      <h2>איך להשתמש במדריך?</h2>
+      <div class="intro-step">
+        <div class="intro-icon">🔇</div>
+        <div class="intro-text"><strong>מצאי פינה שקטה.</strong> תני לעצמך את השעה הזו בלי אשמה ובלי הסחות דעת.</div>
+      </div>
+      <div class="intro-step">
+        <div class="intro-icon">✍️</div>
+        <div class="intro-text"><strong>אין תשובות נכונות.</strong> המדריך הזה עבורך ואת לא חייבת לשתף אותו עם אף אחד.</div>
+      </div>
+      <div class="intro-step">
+        <div class="intro-icon">🚶‍♀️</div>
+        <div class="intro-text"><strong>עברי שלב אחרי שלב.</strong> כל שלב בנוי על הקודם — אבל אפשר גם לחזור אחורה בכל עת.</div>
+      </div>
+      <div class="intro-step">
+        <div class="intro-icon">💬</div>
+        <div class="intro-text"><strong>בכל שלב יש כפתור ליצירת קשר איתי.</strong> אם משהו עלה ורוצה לשתף — אני כאן.</div>
+      </div>
+      <div class="intro-note">
+        כשתעשי את התרגילים, שני דברים יקרו:<br>
+        הרעש יירגע קצת — כי סוף סוף נתת לעצמך מקום לחשוב על זה.<br>
+        רעיונות יתחילו לצוץ — כי המוח שלך כבר יודע יותר ממה שאת חושבת.
+      </div>
+      <div class="intro-sig">מאמינה בך, שרון 🌿</div>
+      <div style="text-align:center;margin-top:1.5rem;">
+        <button class="btn-start" onclick="startGuide()">מוכנה — נתחיל</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -146,13 +202,6 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
     <div class="pd" id="d0"></div><div class="pd" id="d1"></div>
     <div class="pd" id="d2"></div><div class="pd" id="d3"></div><div class="pd" id="d4"></div>
   </div>
-  <div class="nav-steps">
-    <button class="nsb cur" onclick="go(0)">1 · דמייני</button>
-    <button class="nsb" onclick="go(1)">2 · רשמי</button>
-    <button class="nsb" onclick="go(2)">3 · נחשי</button>
-    <button class="nsb" onclick="go(3)">4 · הקשיבי</button>
-    <button class="nsb" onclick="go(4)">5 · ספרי</button>
-  </div>
 
   <div class="sc-wrap">
 
@@ -161,11 +210,14 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
       <div class="sh"><div class="snum" id="n0">1</div>
         <div><div class="stitle">דמייני</div><div class="ssub">תרגיל חופשי — בלי מחויבות</div></div>
       </div>
-      <div class="why"><p>מחשבות ירוצו בכל מקרה. אם לא תשקיעי כמה דקות בתרחיש חיובי, המוח באופן טבעי ילך לשלילי. ההצעה שלי: להחליט שזה רק תרגיל, ומה שתדמייני לא מאלץ אותך לשנות כלום. המטרה היא שיהיה לך כיף לדמיין.</p></div>
+      <div class="why"><p>מחשבות ירוצו בכל מקרה. אם לא תשקיעי כמה דקות בתרחיש חיובי, המוח באופן טבעי ילך לשלילי — לכל הסיבות שזה לא אפשרי. ההצעה שלי: להחליט שזה רק תרגיל, ומה שתדמייני לא מאלץ אותך לשנות כלום. המטרה היא שיהיה לך כיף לדמיין.</p></div>
       <label class="lbl">את פוגשת את עצמך שנה מהיום בבית קפה שאת אוהבת. מה את רואה? ספרי לאני של עכשיו:</label>
       <textarea id="a0" placeholder="בעולם שבו הכל אפשרי ואין מגבלה של זמן וכסף — תארי תוצאה אחת שהשגת שנה מהיום..."></textarea>
       <div>
-        <button class="hint-btn" onclick="tog('h0')">קשה לך לדמיין? הנה כמה שאלות שיעזרו</button>
+        <button class="hint-btn" id="hbtn0" onclick="tog('h0','hbtn0')">
+          קשה לך לדמיין? הנה שאלות שיעזרו
+          <i class="hint-arrow">▾</i>
+        </button>
         <div class="hints" id="h0">
           <p>איך את נראית, מה את לובשת?<br>איפה את עובדת, כמה שעות ביום?<br>למי את עוזרת?<br>מה את עושה בזמן הפנוי? מה התוכניות שלך?<br>מה אומרים חברים ומשפחה שרואים מה השגת?<br>מה את מרגישה בבוקר כשאת קמה? בערב כשאת הולכת לישון?<br>מה את אומרת לאני של לפני שנה?</p>
         </div>
@@ -173,7 +225,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
       <div class="story">
         <div class="story-inner">
           <div class="story-img">
-            <!-- 📸 תמונת שרון ללא רקע (PNG) — להחליף ב: <img src="URL_PNG_ללא_רקע" alt="שרון"> -->
+            <!-- 📸 PNG ללא רקע: <img src="URL_PNG" alt="שרון"> -->
             <div class="story-img-ph">📸 שרון<br>ללא רקע</div>
           </div>
           <div class="story-text">
@@ -186,6 +238,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
         <button class="btn-wa" onclick="openWA('דמייני')"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>שתפי אותי בדמיון שלך</button>
         <button class="btn-t" onclick="nxt(0)">לשלב הבא ←</button>
       </div>
+      <div class="nav-steps" id="nav0"></div>
     </div>
 
     <!-- שלב 2 -->
@@ -204,10 +257,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
       </div>
       <div class="story" style="margin-top:1.25rem;">
         <div class="story-inner">
-          <div class="story-img">
-            <!-- 📸 תמונת שרון ללא רקע (PNG) — להחליף ב: <img src="URL_PNG_ללא_רקע" alt="שרון"> -->
-            <div class="story-img-ph">📸 שרון<br>ללא רקע</div>
-          </div>
+          <div class="story-img"><div class="story-img-ph">📸 שרון<br>ללא רקע</div></div>
           <div class="story-text">
             <div class="story-lbl">מניסיוני האישי</div>
             <p>הפחדים שלי היו: בטח משרד החינוך לא ישחרר אותי כי אין מורות לאנגלית. בטח הורים לא ירצו שיעורים קבוצתיים. הרבה מורות רוצות לעזוב ולא מצליחות — למה שאני אצליח?</p>
@@ -218,6 +268,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
         <button class="btn-wa" onclick="openWA('רשמי פחדים')"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>ספרי לי על הפחדים שלך</button>
         <div class="brow"><button class="btn-g" onclick="go(0)">→ חזרה</button><button class="btn-t" onclick="nxt(1)">לשלב הבא ←</button></div>
       </div>
+      <div class="nav-steps" id="nav1"></div>
     </div>
 
     <!-- שלב 3 -->
@@ -234,10 +285,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
       </div>
       <div class="story" style="margin-top:1.25rem;">
         <div class="story-inner">
-          <div class="story-img">
-            <!-- 📸 תמונת שרון ללא רקע (PNG) — להחליף ב: <img src="URL_PNG_ללא_רקע" alt="שרון"> -->
-            <div class="story-img-ph">📸 שרון<br>ללא רקע</div>
-          </div>
+          <div class="story-img"><div class="story-img-ph">📸 שרון<br>ללא רקע</div></div>
           <div class="story-text">
             <div class="story-lbl">מניסיוני האישי</div>
             <p>צעד ראשון — בדקתי מה בכלל הזכויות שלי. צעד שני — קבעתי פגישת ייעוץ עם עורך דין (פגישה חינמית!). צעד שלישי — בדקתי כמה ימי חופש מגיעים לי.</p>
@@ -248,6 +296,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
         <button class="btn-wa" onclick="openWA('נחשי צעדים')"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>שתפי אותי בצעדים שלך</button>
         <div class="brow"><button class="btn-g" onclick="go(1)">→ חזרה</button><button class="btn-t" onclick="nxt(2)">לשלב הבא ←</button></div>
       </div>
+      <div class="nav-steps" id="nav2"></div>
     </div>
 
     <!-- שלב 4 -->
@@ -256,18 +305,23 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
         <div><div class="stitle">הקשיבי</div><div class="ssub">מדיטציה לרגעים שקשה לדמיין</div></div>
       </div>
       <div class="med-box">
-        <!-- 🎧 להטמיע כאן את המדיטציה של שרון -->
-        <!-- אודיו: <audio controls style="width:100%;margin-bottom:0.75rem;border-radius:8px;"><source src="URL_MEDITATION" type="audio/mpeg"></audio> -->
+        <div class="med-icon">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="38" r="7" stroke="rgba(255,250,248,0.7)" stroke-width="2.5" fill="none"/>
+            <circle cx="38" cy="38" r="7" stroke="rgba(255,250,248,0.7)" stroke-width="2.5" fill="none"/>
+            <path d="M7 38 V20 Q26 4 45 20 V38" stroke="rgba(255,250,248,0.7)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <line x1="26" y1="14" x2="26" y2="20" stroke="rgba(255,250,248,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="26" cy="12" r="2" fill="rgba(255,250,248,0.5)"/>
+          </svg>
+        </div>
+        <!-- 🎧 להטמיע: <audio controls style="width:100%;margin-bottom:0.75rem;border-radius:8px;"><source src="MUSIC_FILE.mp3" type="audio/mpeg"></audio> -->
         <p>המדיטציה המוקלטת של שרון תופיע כאן</p>
         <div class="med-ph">📍 מיקום להטמעת קובץ אודיו</div>
       </div>
       <p style="font-size:14px;color:var(--muted);line-height:1.75;">את יכולה לחזור לשלב הזה מתי שקשה לך לדמיין, כשהפחדים חזקים ועדיין את רוצה רגע של תקווה. את יכולה להאזין למדיטציה כהטענה יומית או לפני שינה.</p>
       <div class="story" style="margin-top:1.25rem;">
         <div class="story-inner">
-          <div class="story-img">
-            <!-- 📸 תמונת שרון ללא רקע (PNG) — להחליף ב: <img src="URL_PNG_ללא_רקע" alt="שרון"> -->
-            <div class="story-img-ph">📸 שרון<br>ללא רקע</div>
-          </div>
+          <div class="story-img"><div class="story-img-ph">📸 שרון<br>ללא רקע</div></div>
           <div class="story-text">
             <div class="story-lbl">מניסיוני האישי</div>
             <p>חיפשתי מקורות שיתנו לי תקווה והשראה: פודקאסטים, יוטיוב, מדיטציות והמון המון קריאה של ספרים. כל דבר שהרגשתי שעוזר לי — אימצתי אל ליבי.</p>
@@ -278,6 +332,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
         <button class="btn-wa" onclick="openWA('הקשיבי')"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>כתבי לי מה הרגשת</button>
         <div class="brow"><button class="btn-g" onclick="go(2)">→ חזרה</button><button class="btn-t" onclick="nxt(3)">לשלב האחרון ←</button></div>
       </div>
+      <div class="nav-steps" id="nav3"></div>
     </div>
 
     <!-- שלב 5 -->
@@ -290,10 +345,7 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
       <textarea id="sp" placeholder="למשל: אני הולכת לשבת עם X בסוף השבוע ולספר לה שאני רוצה לשנות את..."></textarea>
       <div class="story" style="margin-top:1.25rem;">
         <div class="story-inner">
-          <div class="story-img">
-            <!-- 📸 תמונת שרון ללא רקע (PNG) — להחליף ב: <img src="URL_PNG_ללא_רקע" alt="שרון"> -->
-            <div class="story-img-ph">📸 שרון<br>ללא רקע</div>
-          </div>
+          <div class="story-img"><div class="story-img-ph">📸 שרון<br>ללא רקע</div></div>
           <div class="story-text">
             <div class="story-lbl">מניסיוני האישי</div>
             <p>השינוי שלי החל ברגע שהעזתי לשבת עם חברה ולספר שאני הולכת לעזוב את משרד החינוך. הפחדים לא נעלמו — אבל זה כבר לא היה סוד בתוך הראש שלי. זה היה בעולם. ועצם זה שעוד חברה ידעה — נתן לי את הדחיפה האמיתית להתחיל לפעול.</p>
@@ -302,8 +354,12 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
       </div>
       <div class="sfoot">
         <button class="btn-wa" onclick="openWA('ספרי')"><svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>ספרי לי למי שתפת</button>
-        <div class="brow"><button class="btn-g" onclick="go(3)">→ חזרה</button><button class="btn-t" onclick="showFinish()">סיימתי ✓</button></div>
+        <div class="brow">
+          <button class="btn-g" onclick="go(3)">→ חזרה</button>
+          <button class="btn-almost" onclick="showFinish()">כמעט סיימת! עוד משהו קטן ←</button>
+        </div>
       </div>
+      <div class="nav-steps" id="nav4"></div>
     </div>
 
   </div>
@@ -313,45 +369,39 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
 <!-- FINISH -->
 <div class="page" id="pgFinish">
 <div class="finish">
-
   <div class="fin-hero">
     <div class="fin-photo">
-      <!-- 📸 <img src="URL_תמונת_שרון_עגולה" alt="שרון שחר" style="width:100%;height:100%;object-fit:cover;"> -->
+      <!-- 📸 <img src="URL" alt="שרון שחר" style="width:100%;height:100%;object-fit:cover;"> -->
       <div style="font-size:11px;color:rgba(255,250,248,0.6);padding:6px;text-align:center;">📸 שרון</div>
     </div>
     <h2>כל הכבוד — עשית את זה</h2>
     <p>עברת את כל 5 השלבים.<br>אם משהו התעורר בך — זה לא מקרה.<br>זה סימן שהשינוי שלך כבר מחכה לך.</p>
   </div>
-
   <div class="about-card">
     <h3>מי אני?</h3>
     <p>היי, שמי שרון שחר — מאמנת מנטלית לשינוי, בעלת עסק ללומדי אנגלית, מורה לשעבר (במשך 30 שנה!) במשרד החינוך. בעלת תשובה, נשואה פעם שנייה, אמא ל-3 ילדים וסבתא טרייה.</p>
-    <p>כמו שאת רואה, עשיתי לא מעט שינויים משמעותיים בחיי. חוויתי על בשרי את הכמיהה הבוערת לשינוי לצד הפחד המשתק — אבל פיצחתי את הדרך לעשות את זה נכון. מתוך חיבור למהות הפנימית, עם תוכנית עבודה פרקטית ובלי לוותר על עצמי.</p>
+    <p>כמו שאת רואה, עשיתי לא מעט שינויים משמעותיים בחיי. חוויתי על בשרי את הכמיהה הבוערת לשינוי לצד הפחד המשתק — אבל פיצחתי את הדרך לעשות את זה נכון.</p>
     <p>כשהצלחתי, כולם אמרו לי: <em>"וואו שרון, איזה אומץ יש לך."</em><br>אבל האמת? זה לא היה אומץ. <strong>זו הייתה שיטה.</strong></p>
   </div>
-
   <div class="about-card">
     <h3>איך נעשה את זה יחד?</h3>
     <p>שינוי לא מתחיל באקט קיצוני — הוא מתחיל בצעדים קטנים עם אפקט מצטבר.</p>
-    <div class="method-steps">
-      <div class="ms"><div class="ms-num">1</div><div class="ms-text"><strong>נפרק את החסמים</strong> — נבין מה מחזיק אותך במקום ונכין את הסביבה שלך לשינוי שעומד לבוא. תלמדי "לדבר את השינוי שלך."</div></div>
-      <div class="ms"><div class="ms-num">2</div><div class="ms-text"><strong>נבנה תוכנית פעולה</strong> — קודם מבינים מה היעד, אחר כך מתכננות מסלול ישים תוך שימוש בכל החוזקות והמשאבים שכבר יש לך.</div></div>
-      <div class="ms"><div class="ms-num">3</div><div class="ms-text"><strong>נתמקד בצעד הראשון</strong> — נבנה עבורו תשתית שתחזיק ותתמוך בשינוי שאליו אנחנו מתקדמות.</div></div>
+    <div class="method-steps" style="margin-top:1rem;">
+      <div class="ms"><div class="ms-num">1</div><div class="ms-text"><strong>נפרק את החסמים</strong> — נבין מה מחזיק אותך במקום ונכין את הסביבה שלך לשינוי.</div></div>
+      <div class="ms"><div class="ms-num">2</div><div class="ms-text"><strong>נבנה תוכנית פעולה</strong> — מסלול ישים תוך שימוש בכל החוזקות שכבר יש לך.</div></div>
+      <div class="ms"><div class="ms-num">3</div><div class="ms-text"><strong>נתמקד בצעד הראשון</strong> — נבנה עבורו תשתית שתחזיק ותתמוך בשינוי.</div></div>
       <div class="ms"><div class="ms-num">4</div><div class="ms-text"><strong>נתמודד עם הפחדים שיצוצו</strong> — כי הם יצוצו, וזו בדיוק הסיבה שעושות את זה יחד.</div></div>
     </div>
     <p style="margin-top:1rem;font-size:13px;color:var(--terra);font-weight:600;">7 מפגשי זום · חודשיים · תמיכה מלאה בוואטסאפ בין המפגשים</p>
   </div>
-
   <div class="quote-card">
-    <div class="quote-text">"האימונים עברו בנעימות ובצורה ממוקדת ומניעה. אמאלה — חזרו לי הכוחות והמרץ והכל מתוך שמחה והתלהבות. אני מרגישה שהליווי שלך משפיע לי על עוד תחומים."</div>
+    <div class="quote-text">"האימונים עברו בנעימות ובצורה ממוקדת ומניעה. אמאלה — חזרו לי הכוחות והמרץ והכל מתוך שמחה והתלהבות."</div>
     <div class="quote-attr">י', בת 52, בעלת קליניקה לרפואה טבעית</div>
   </div>
-
   <div class="quote-card">
-    <div class="quote-text">"התהליך מובנה וברור, ומסייע להבין את החוזקות, החסמים והכיוון הנכון. שרון מקצועית, אכפתית וקשובה, יודעת להוביל תהליך שמחבר תובנות לפעולות ממשיות."</div>
+    <div class="quote-text">"התהליך מובנה וברור. שרון מקצועית, אכפתית וקשובה, יודעת להוביל תהליך שמחבר תובנות לפעולות ממשיות."</div>
     <div class="quote-attr">מ', בת 55, מטפלת רגשית והתנהגותית</div>
   </div>
-
   <div class="cta-card">
     <h3>רוצה לבדוק שהתהליך מתאים לך?</h3>
     <p>השאירי פרטים ואחזור אליך לשיחה קצרה — ללא עלות ובלי מחויבות.</p>
@@ -360,29 +410,85 @@ textarea::placeholder{color:rgba(122,92,78,0.45);}
         <svg class="wa-svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.855L.057 23.215a.75.75 0 0 0 .912.912l5.36-1.471A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.686-.523-5.212-1.43l-.374-.222-3.878 1.064 1.064-3.878-.222-.374A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         שרון, אשמח שנדבר
       </button>
-      <a class="btn-program" href="https://sharonshahar.ravpage.co.il/change%20SP" target="_blank">
-        ← לפרטים על תוכנית הליווי
-      </a>
+      <a class="btn-program" href="https://sharonshahar.ravpage.co.il/change%20SP" target="_blank">← לפרטים על תוכנית הליווי</a>
       <button class="btn-g" onclick="restart()">↺ חזרה להתחלה</button>
     </div>
   </div>
-
 </div>
 </div>
 
 <script>
 var cur=0,done=[];
-var WA="972XXXXXXXXX"; // 📞 להחליף במספר של שרון
+var WA="972XXXXXXXXX";
+var STEPS=["1 · דמייני","2 · רשמי","3 · נחשי","4 · הקשיבי","5 · ספרי"];
 
 function openWA(ctx){window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("היי שרון, סיימתי את שלב '"+ctx+"' במדריך 🌿"),"_blank");}
-function startGuide(){document.getElementById("pgCover").classList.remove("vis");document.getElementById("pgGuide").classList.add("vis");window.scrollTo({top:0,behavior:"smooth"});}
-function go(n){document.getElementById("s"+cur).classList.remove("vis");cur=n;document.getElementById("s"+cur).classList.add("vis");ui();window.scrollTo({top:0,behavior:"smooth"});}
-function nxt(n){if(!done.includes(n))done.push(n);var e=document.getElementById("n"+n);e.classList.add("ok");e.textContent="✓";go(n+1);}
-function showFinish(){if(!done.includes(4))done.push(4);var e=document.getElementById("n4");e.classList.add("ok");e.textContent="✓";document.getElementById("pgGuide").classList.remove("vis");document.getElementById("pgFinish").classList.add("vis");window.scrollTo({top:0,behavior:"smooth"});}
-function restart(){done=[];for(var i=0;i<5;i++){var e=document.getElementById("n"+i);e.classList.remove("ok");e.textContent=i+1;}cur=0;document.getElementById("pgFinish").classList.remove("vis");document.getElementById("pgCover").classList.add("vis");window.scrollTo({top:0,behavior:"smooth"});}
-function tog(id){document.getElementById(id).classList.toggle("open");}
-function ui(){var dots=document.querySelectorAll(".pd"),btns=document.querySelectorAll(".nsb");for(var i=0;i<5;i++){dots[i].className="pd";btns[i].className="nsb";if(done.includes(i)){dots[i].classList.add("done");btns[i].classList.add("cmp");}else if(i===cur){dots[i].classList.add("active");btns[i].classList.add("cur");}}}
-ui();
+function showIntro(){document.getElementById("pgCover").classList.remove("vis");document.getElementById("pgIntro").classList.add("vis");window.scrollTo({top:0,behavior:"smooth"});}
+function startGuide(){document.getElementById("pgIntro").classList.remove("vis");document.getElementById("pgGuide").classList.add("vis");buildNavs();ui();window.scrollTo({top:0,behavior:"smooth"});}
+
+function buildNavs(){
+  for(var i=0;i<5;i++){
+    var el=document.getElementById("nav"+i);
+    el.innerHTML="";
+    for(var j=0;j<5;j++){
+      var b=document.createElement("button");
+      b.className="nsb";
+      b.textContent=STEPS[j];
+      b.setAttribute("data-idx",j);
+      b.onclick=(function(idx){return function(){go(idx);};})(j);
+      el.appendChild(b);
+    }
+  }
+}
+
+function go(n){
+  document.getElementById("s"+cur).classList.remove("vis");
+  cur=n;
+  document.getElementById("s"+cur).classList.add("vis");
+  ui();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function nxt(n){
+  if(!done.includes(n))done.push(n);
+  var e=document.getElementById("n"+n);e.classList.add("ok");e.textContent="✓";
+  go(n+1);
+}
+function showFinish(){
+  if(!done.includes(4))done.push(4);
+  var e=document.getElementById("n4");e.classList.add("ok");e.textContent="✓";
+  document.getElementById("pgGuide").classList.remove("vis");
+  document.getElementById("pgFinish").classList.add("vis");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function restart(){
+  done=[];
+  for(var i=0;i<5;i++){var e=document.getElementById("n"+i);e.classList.remove("ok");e.textContent=i+1;}
+  cur=0;
+  document.getElementById("pgFinish").classList.remove("vis");
+  document.getElementById("pgCover").classList.add("vis");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function tog(id,btnId){
+  var el=document.getElementById(id);
+  var btn=document.getElementById(btnId);
+  el.classList.toggle("open");
+  btn.classList.toggle("open");
+}
+function ui(){
+  for(var i=0;i<5;i++){
+    var dots=document.querySelectorAll(".pd");
+    dots[i].className="pd";
+    if(done.includes(i))dots[i].classList.add("done");
+    else if(i===cur)dots[i].classList.add("active");
+    var navBtns=document.querySelectorAll("#nav"+cur+" .nsb");
+    navBtns.forEach(function(b){
+      var idx=parseInt(b.getAttribute("data-idx"));
+      b.className="nsb";
+      if(done.includes(idx))b.classList.add("cmp");
+      else if(idx===cur)b.classList.add("cur");
+    });
+  }
+}
 </script>
 </body>
 </html>
